@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const db = require('../database/dbConfig');
 const Users = require('./userModel');
 
 router.get('/', async (req, res, next) => {
