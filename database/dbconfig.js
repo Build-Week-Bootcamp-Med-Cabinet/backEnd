@@ -1,4 +1,6 @@
 const knex = require('knex');
 const knexfile = require('../knexfile');
 
-module.exports = knex(knexfile.development);
+const db = knex(knexfile[process.env.DB_ENV || 'development']);
+
+module.exports = db;
