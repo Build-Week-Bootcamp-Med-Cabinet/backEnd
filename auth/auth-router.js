@@ -12,7 +12,7 @@ router.post('/register', async (req, res) => {
 		auth.password = bcrypt.hashSync(auth.password, 14);
 		await db('users').insert(auth);
 
-		res.status(201).json({ message: `successfully added ${auth.username}` });
+		res.status(200).json({ message: `successfully added ${auth.username}` });
 	} catch (err) {
 		console.log(err);
 		res.status(500).json({ message: 'Username Taken user another username' });
