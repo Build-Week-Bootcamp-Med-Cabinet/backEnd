@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 router.post('/register', async (req, res) => {
 	try {
 		const auth = req.body;
-		if (!auth.firstname || !auth.lastname || !auth.email || !auth.username || !auth.password) {
+		if (!auth.firstname || !auth.lastName || !auth.email || !auth.username || !auth.password) {
 			res.status(400).json({ message: 'Please provide the require information' });
 		}
 		auth.password = bcrypt.hashSync(auth.password, 14);
