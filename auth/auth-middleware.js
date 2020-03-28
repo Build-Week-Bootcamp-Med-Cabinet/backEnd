@@ -11,8 +11,8 @@ function restrict() {
 			if (!token) {
 				return res.status(401).json(authError);
 			}
-
-			jwt.verify(token, 'howdy', (err, decoded) => {
+			const secret = process.env.JWT_SECRET || 'Howdy';
+			jwt.verify(token, secret, (err, decoded) => {
 				if (err) {
 					return res.status(401).json(authError);
 				}
